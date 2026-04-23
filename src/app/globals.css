@@ -1,27 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-bebas: "Bebas Neue";
+  --font-grotesk: "Space Grotesk";
+  --font-playfair: "Playfair Display";
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f0eb;
+  color: #1a1f1c;
+  font-family: var(--font-grotesk), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Fabric weave tile at 2% opacity on cream sections */
+.fabric-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c49a4a' fill-opacity='0.04'%3E%3Crect x='0' y='0' width='10' height='10'/%3E%3Crect x='10' y='10' width='10' height='10'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .gold-text {
+    background: linear-gradient(to right, #c49a4a, #d4aa5a, #b8863c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-text-solid {
+    color: #c49a4a;
   }
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes goldCycle {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.marquee-track { animation: marquee 24s linear infinite; }
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #c49a4a 0%, #d4aa5a 30%, #f0d080 50%, #d4aa5a 70%, #c49a4a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 3s linear infinite;
+}
+
+.gold-cycle {
+  background: linear-gradient(270deg, #c49a4a, #d4aa5a, #f0d080, #d4aa5a, #b8863c);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldCycle 4s ease infinite;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #f5f0eb; }
+::-webkit-scrollbar-thumb { background: #c49a4a; border-radius: 2px; }
