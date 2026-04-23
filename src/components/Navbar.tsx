@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { HangerGoldSVG } from "./SvgDecorators";
 
-const links = ["HOME", "OUR WORK", "SERVICES", "INDUSTRIES", "ABOUT US", "CONTACT"];
+const links = ["HOME", "OUR WORK"];
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 export default function Navbar() {
