@@ -9,7 +9,7 @@ import MetaAds from "@/components/MetaAds";
 import GoogleAds from "@/components/GoogleAds";
 import ReelsShorts from "@/components/ReelsShorts";
 import LocalSeo from "@/components/LocalSeo";
-import PrBranding from "@/components/PrBranding";
+import PressRelease from "@/components/PressRelease";
 import WebsiteDesign from "@/components/WebsiteDesign";
 import PhotoVideo from "@/components/PhotoVideo";
 import Platforms from "@/components/Platforms";
@@ -51,7 +51,7 @@ export default function Home() {
       <Divider />
       <LocalSeo />
       <Divider dark />
-      <PrBranding />
+      <PressRelease />
       <Divider />
       <WebsiteDesign />
       <Divider dark />

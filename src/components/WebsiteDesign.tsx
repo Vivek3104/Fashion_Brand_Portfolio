@@ -15,14 +15,13 @@ export default function WebsiteDesign() {
   });
 
   // Map scroll progress to the website image position
-  // Adjust "-60%" depending on how long the image is
   const websiteY = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
 
   return (
     <section 
       ref={containerRef} 
       className="relative w-full bg-[#f9f7f4] font-grotesk fabric-bg border-t border-dark/5"
-      style={{ height: "200vh" }} // Tall enough to scroll and see the mockup move
+      style={{ height: "200vh" }} 
     >
       <StitchLineSVG className="absolute top-0 left-0 w-full pointer-events-none z-50" color="rgba(26,31,28,0.08)" />
       
@@ -52,7 +51,7 @@ export default function WebsiteDesign() {
           </div>
         </div>
 
-        {/* Right: Laptop Mockup with Internal Scroll */}
+        {/* Right: Laptop Mockup */}
         <div className="flex-[1.2] relative h-full w-full flex items-center justify-center pt-20 lg:pt-0">
           
           <div className="relative w-full max-w-[650px] perspective-[1000px]">
@@ -68,14 +67,14 @@ export default function WebsiteDesign() {
               {/* Screen Display Area */}
               <div className="relative w-full aspect-[16/10] bg-white rounded-lg overflow-hidden border border-black/20">
                 
-                {/* The Scrolling Website Content */}
+                {/* The Website Content */}
                 <motion.div
                   style={{ y: websiteY }}
                   className="absolute top-0 left-0 w-full h-[300%] pointer-events-none"
                 >
                   <div className="relative w-full h-full">
                     <Image 
-                      src="/images/mockups/nexora.png" 
+                      src="/images/mockups/threads-landing.png" 
                       alt="Website Preview" 
                       fill 
                       className="object-cover object-top"
